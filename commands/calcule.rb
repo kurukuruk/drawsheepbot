@@ -21,7 +21,7 @@ module Drawsheep
         if result && !result.empty?
           client.say(channel: data.channel, text: result)
         else
-          client.say(channel: data.channel, text: 'Got nothing.')
+          client.say(channel: data.channel, text: 'Aucun résultat possible.')
         end
       rescue StandardError => e
         client.say(channel: data.channel, text: "Je rencontre un problème: #{e.message}.")
