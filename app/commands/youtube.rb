@@ -11,7 +11,7 @@ module Drawsheep
 
       help do
         title 'youtube'
-        desc 'Opérateur "-youtube *args"'
+        desc 'Envie de vidéos? (alias: "-youtube *args")'
         long_desc 'Je parse les arguments puis je vous envoie un lien youtube.'
       end
 

@@ -11,7 +11,7 @@ module Drawsheep
 
       help do
         title 'ping'
-        desc 'ping pong dialogue.'
+        desc 'ping pong dialogue (alias: "-ping")'
         long_desc 'Une partie de ping pong ?'
       end
 

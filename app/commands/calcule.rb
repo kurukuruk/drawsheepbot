@@ -13,7 +13,7 @@ module Drawsheep
 
       help do
         title 'calcule'
-        desc 'Opérateur "="'
+        desc 'On fait des maths? (alias: "= *args")'
         long_desc 'Retourne le résultat d\'une opération mathématique.'
       end
 
