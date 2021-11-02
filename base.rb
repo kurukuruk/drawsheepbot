@@ -7,11 +7,11 @@ require 'sinatra/reloader'
 module Drawsheep
   ##
   # Notre controlleur de base
-
+  #
   class Base < Sinatra::Base
     ##
     # configuration generale
-
+    #
     configure do
       set :public_folder, 'public'
       set :title, 'DrawsheepBot' # code.richard
@@ -22,7 +22,7 @@ module Drawsheep
 
     ##
     # configuration développement
-
+    #
     configure :development do
       register Sinatra::Reloader
     end
