@@ -6,9 +6,14 @@ require 'dotenv'
 
 Dotenv.load
 
+require './env'
+
 Thread.abort_on_exception = true
 
-require 'bot'
+##
+# le bot
+
+require './bot'
 Thread.new do
   Drawsheep::Bot.run
 rescue Exception => e
@@ -17,5 +22,8 @@ rescue Exception => e
   raise e
 end
 
-require 'base'
+##
+# la base sinatra
+
+require './base'
 run Drawsheep::Base
