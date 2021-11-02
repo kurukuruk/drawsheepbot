@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
+Thread.abort_on_exception = true
 
 ##
 # variables d'environnement
@@ -11,12 +12,10 @@ Dotenv.load
 
 require './env'
 
-Thread.abort_on_exception = true
-
 ##
 # le bot
 
-require './bot'
+require './app/bot'
 
 Thread.new do
   Drawsheep::Bot.run
@@ -29,6 +28,6 @@ end
 ##
 # la base sinatra
 
-require './base'
+require './app/base'
 
 run Drawsheep::Base
