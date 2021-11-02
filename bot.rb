@@ -1,6 +1,9 @@
 require 'slack-ruby-bot'
 
-# Dir['/commands/*.rb'].each { |file| require file }
+Dir["#{__dir__}/commands/*.rb"].sort.each do |file|
+  puts "Load command: #{file}"
+  require file
+end
 
 ##
 # Configuration générale du robot
@@ -36,37 +39,13 @@ module Drawsheep
         desc 'ping pong dialogue.'
         long_desc 'Si tu dit ping, je dis pong !'
       end
-
-      command 'hello_world' do
-        desc 'Un simple \'Hello World!\'.'
-        long_desc 'Si tu dit ping, je dis pong !'
-      end
-
-      command 'youtube' do
-        desc 'Demande moi une recherche youtube.'
-        long_desc 'Je parse les arguments et vous envoie un liens vers votre recherche sur youtube.'
-      end
     end
 
     ##
-    # Ajout des commandes
+    # Ajout des commandes de base
 
     command 'ping' do |client, data, _match|
       client.say(text: 'pong', channel: data.channel)
-    end
-
-    command 'hello_world' do |client, data, _match|
-      client.say(text: 'Hello World!', channel: data.channel)
-    end
-
-    command 'youtube' do |client, data, match|
-      url = 'https://www.youtube.com/results?search_query='
-      search_query = match['expression']&.gsub(' ', '+')
-      if search_query
-        client.say(channel: data.channel, text: "#{url}#{search_query}")
-      else
-        client.say(channel: data.channel, text: 'Je ne peux pas effectuer de recherche dans le vide, voyons!')
-      end
     end
   end
 end

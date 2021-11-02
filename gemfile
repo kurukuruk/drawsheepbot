@@ -9,6 +9,9 @@ gem 'dotenv'
 gem 'celluloid-io'
 gem 'async-websocket', '~> 0.8.0'
 
+# gems utilitaires
+gem 'dentaku'
+
 group :development, :test do
   gem 'rake'
   gem 'foreman'
