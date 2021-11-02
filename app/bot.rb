@@ -27,12 +27,12 @@ module Drawsheep
   class Bot < SlackRubyBot::Bot
     ##
     # Ajout d'une description du robot pour la commande help
-    #
-    help do
-      title 'DrawsheepBot'
-      desc 'Dessine moi un mouton.'
-      long_desc 'https://github.com/kurukuruk/drawsheepbot'
-    end
+    # #
+    # help do
+    #   title 'DrawsheepBot'
+    #   desc 'Dessine moi un mouton.'
+    #   long_desc 'https://github.com/kurukuruk/drawsheepbot'
+    # end
 
     ##
     # Personalisation de la commande 'help'
