@@ -3,7 +3,7 @@
 #
 module Drawsheep
   module Commands
-    class MathCommand < SlackRubyBot::Commands::Base
+    class Youtube < SlackRubyBot::Commands::Base
       operator '-youtube'
       command 'youtube'
 

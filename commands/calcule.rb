@@ -6,7 +6,7 @@ require 'Dentaku'
 #
 module Drawsheep
   module Commands
-    class MathCommand < SlackRubyBot::Commands::Base
+    class Calcule < SlackRubyBot::Commands::Base
       operator '='
       command 'calcule'
 
