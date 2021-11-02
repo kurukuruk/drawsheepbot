@@ -7,6 +7,7 @@ require 'sinatra/reloader'
 module Drawsheep
   ##
   # Notre controlleur de base
+
   class Base < Sinatra::Base
     ##
     # configuration generale

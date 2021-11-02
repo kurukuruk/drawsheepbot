@@ -21,6 +21,13 @@ module Drawsheep
     ##
     # Ajout des éléments présents pour la commande help
 
+    ###
+    # Il serait bon de mettre chaque commande
+    # soit dans un module dédié
+    # soit dans une class dédiée
+    # il y a les explications nécessaire dans la documentation de la lib
+    ###
+
     help do
       title 'Drawsheep bot !'
       desc 'Dessine moi un mouton.'
