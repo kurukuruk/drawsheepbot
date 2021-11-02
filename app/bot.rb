@@ -1,17 +1,20 @@
+# frozen_string_literal: true
+
 require 'slack-ruby-bot'
+require './app/support'
+
+# Configuration générale du robot
+
+SlackRubyBot.configure do |config|
+  config.token = ENV['SLACK_API_TOKEN']
+  config.aliases = [':ds', 'dsbot']
+end
 
 # Chargement des fichiers commands
 
 Dir["#{__dir__}/commands/*.rb"].sort.each do |file|
   puts "Load command: #{file}"
   require file
-end
-
-# Configuration générale du robot
-
-SlackRubyBot.configure do |config|
-  config.token = ENV['SLACK_API_TOKEN']
-  # config.aliases = [':pong:', 'pongbot']
 end
 
 ##
@@ -23,23 +26,21 @@ module Drawsheep
   #
   class Bot < SlackRubyBot::Bot
     ##
-    # Ajout des éléments présents pour la commande help
+    # Ajout d'une description du robot pour la commande help
     #
     help do
-      title 'Drawsheep bot !'
+      title 'DrawsheepBot'
       desc 'Dessine moi un mouton.'
-
-      command 'ping' do
-        desc 'ping pong dialogue.'
-        long_desc 'Si tu dit ping, je dis pong !'
-      end
+      long_desc 'https://github.com/kurukuruk/drawsheepbot'
     end
 
     ##
-    # Ajout des commandes de base
+    # Personalisation de la commande 'help'
     #
-    command 'ping' do |client, data, _match|
-      client.say(text: 'pong', channel: data.channel)
+    command 'help' do |client, data, match|
+      client.say(channel: data.channel, text: Support::Help.generate_help(match[:expression]))
+    rescue StandardError => e
+      client.say(channel: data.channel, text: "Je rencontre un problème: #{e.message}.")
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # La commande youtube permet de faire une recherche sur youutube, ou d'avoir juste youtube.
 #
