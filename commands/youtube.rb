@@ -1,5 +1,5 @@
 ##
-# La commande des youtube.
+# La commande youtube permet de faire une recherche sur youutube, ou d'avoir juste youtube.
 #
 module Drawsheep
   module Commands

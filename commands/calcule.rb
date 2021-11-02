@@ -1,8 +1,7 @@
 require 'Dentaku'
 
 ##
-# La commande des mathématiques.
-# EN COURS.
+# La commande des calcules mathématiques.
 #
 module Drawsheep
   module Commands
