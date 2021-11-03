@@ -1,3 +1,5 @@
 .env
+events.log
 gemfile.lock
-foo.rb
+yarn-error.log
+/node_modules

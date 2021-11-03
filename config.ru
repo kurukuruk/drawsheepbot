@@ -13,6 +13,13 @@ Dotenv.load
 require './env'
 
 ##
+# la base sinatra
+
+require './app/base'
+
+run Drawsheep::Base
+
+##
 # le bot
 
 require './app/bot'
@@ -25,9 +32,4 @@ rescue Exception => e
   raise e
 end
 
-##
-# la base sinatra
 
-require './app/base'
-
-run Drawsheep::Base
