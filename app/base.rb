@@ -2,7 +2,7 @@
 
 require 'sinatra/base'
 require 'sinatra/reloader'
-require "sinatra/json"
+require 'sinatra/json'
 require 'json'
 
 require 'net/http'
@@ -38,8 +38,8 @@ module Drawsheep
       uri = URI(url)
       response = Net::HTTP.get(uri)
       res = JSON.parse(response)
-      #append the payload to a file
-      File.open("events.log", "a") do |f|
+      # append the payload to a file
+      File.open('events.log', 'a') do |f|
         f.puts(res['value'])
       end
       res['value']

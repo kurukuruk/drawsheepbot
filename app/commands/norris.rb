@@ -2,7 +2,7 @@
 
 require 'net/http'
 ##
-# La commande des calcules mathématiques.
+# La commande de Chuck Norris.
 #
 module Drawsheep
   module Commands
@@ -16,7 +16,7 @@ module Drawsheep
         long_desc 'get a Chuck Norris fact.'
       end
 
-      def self.call(client, data, match)
+      def self.call(client, data, _match)
         response = Net::HTTP.get_response('https://api.chucknorris.io', '/jokes/random')
         client.say(channel: data.channel, text: response.body)
       rescue StandardError => e

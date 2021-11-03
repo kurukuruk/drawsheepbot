@@ -1,0 +1,8 @@
+*<%= info[:name].swapcase %>*
+*description:*  _<%= info[:description].capitalize %>_
+*repo:*         _<%= info[:repository] %>_
+*version:*      _<%= info[:version] %>_
+*licence:*      _<%= info[:license] %>_
+
+<%= (['*commandes:*'] + other_commands_descs).join("\n- ") %>
+Pour obtenir les informations à propos d'une commande: *help <command>*

@@ -1,13 +1,14 @@
 {
-  "name": "drawsheepbot",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:kurukuruk/drawsheepbot.git",
-  "author": "David PIatek <david@pharmanity.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@commitlint/cli": "^14.1.0",
-    "@commitlint/config-conventional": "^14.1.0",
-    "husky": "^7.0.4"
-  }
+    "name": "drawsheepbot",
+    "description": "Dessine moi un mouton.",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:kurukuruk/drawsheepbot.git",
+    "author": "David PIatek <david@pharmanity.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@commitlint/cli": "^14.1.0",
+        "@commitlint/config-conventional": "^14.1.0",
+        "husky": "^7.0.4"
+    }
 }

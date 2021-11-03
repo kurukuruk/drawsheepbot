@@ -12,6 +12,11 @@ end
 
 # Chargement des fichiers commands
 
+##
+# Les fichiers commandes sont repertorier dans /app/commands
+# Chaque commandes est un enfant de SlackRubyBot::Commands::Base
+# La classe mère gère ensuites ses enfants pour les intégré à notre robot
+#
 Dir["#{__dir__}/commands/*.rb"].sort.each do |file|
   puts "Load command: #{file}"
   require file
@@ -25,15 +30,6 @@ module Drawsheep
   # Le fameux robot !
   #
   class Bot < SlackRubyBot::Bot
-    ##
-    # Ajout d'une description du robot pour la commande help
-    # #
-    # help do
-    #   title 'DrawsheepBot'
-    #   desc 'Dessine moi un mouton.'
-    #   long_desc 'https://github.com/kurukuruk/drawsheepbot'
-    # end
-
     ##
     # Personalisation de la commande 'help'
     #
