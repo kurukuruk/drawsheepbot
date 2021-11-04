@@ -16,12 +16,10 @@ module Drawsheep
       end
 
       def self.call(client, data, match)
-        url = 'https://www.youtube.com'
-        search_query = match['expression'].strip.gsub(' ', '+') if match['expression']
-        if search_query && !search_query.empty?
-          client.say(channel: data.channel, text: "#{url}/results?search_query=#{search_query}")
+        if match[:expression]
+          client.say(channel: data.channel, text: get("/youtube/#{match[:expression].strip.gsub(' ', '+')}"))
         else
-          client.say(channel: data.channel, text: url)
+          client.say(channel: data.channel, text: get('/youtube'))
         end
       rescue StandardError => e
         client.say(channel: data.channel, text: "Je rencontre un problème: #{e.message}.")

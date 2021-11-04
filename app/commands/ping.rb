@@ -16,7 +16,7 @@ module Drawsheep
       end
 
       def self.call(client, data, _match)
-        client.say(text: 'pong', channel: data.channel)
+        client.say(text: get('/ping'), channel: data.channel)
       rescue StandardError => e
         client.say(channel: data.channel, text: "Je rencontre un problème: #{e.message}.")
       end

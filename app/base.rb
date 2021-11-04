@@ -4,7 +4,6 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/json'
 require 'json'
-
 require 'net/http'
 
 ##
@@ -33,16 +32,33 @@ module Drawsheep
       register Sinatra::Reloader
     end
 
-    get '/' do
-      url = 'https://api.chucknorris.io/jokes/random'
-      uri = URI(url)
-      response = Net::HTTP.get(uri)
-      res = JSON.parse(response)
-      # append the payload to a file
-      File.open('events.log', 'a') do |f|
-        f.puts(res['value'])
+    ##
+    # 404
+    not_found do |e|
+      status 404
+      @error = e
+      "404 NOT FOUND : #{e.message}"
+    end
+
+    get '/norris' do
+      response = JSON(Net::HTTP.get(URI('https://api.chucknorris.io/jokes/random'))).transform_keys(&:to_sym)
+      if response[:value]
+        response[:value]
+      elsif response[:error]
+        "#{response[:error]} : #{response[:message]}"
       end
-      res['value']
+    end
+
+    get '/ping' do
+      'pong'
+    end
+
+    get '/youtube/:search_query' do
+      "https://www.youtube.com/results?search_query=#{params[:search_query].strip}"
+    end
+
+    get '/youtube' do
+      'https://www.youtube.com'
     end
   end
 end

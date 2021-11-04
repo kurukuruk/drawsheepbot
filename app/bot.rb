@@ -3,13 +3,6 @@
 require 'slack-ruby-bot'
 require './app/support'
 
-# Configuration générale du robot
-
-SlackRubyBot.configure do |config|
-  config.token = ENV['SLACK_API_TOKEN']
-  config.aliases = [':ds', 'dsbot']
-end
-
 # Chargement des fichiers commands
 
 ##
