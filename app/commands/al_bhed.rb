@@ -1,24 +1,25 @@
 # frozen_string_literal: true
 
-require 'Dentaku'
+require './lib/string'
 
 ##
-# La commande des calcules mathématiques.
+# La commande al_bhed.
+# Transforme du texte alphabet en texte al_bhed (voir: final fantasy X)
 #
 module Drawsheep
   module Commands
-    class Calcule < SlackRubyBot::Commands::Base
-      operator '='
-      command 'calcule'
+    class AlBhed < SlackRubyBot::Commands::Base
+      operator '-al_bhed'
+      command 'al_bhed'
 
       help do
-        title 'calcule'
-        desc 'On fait des maths? (alias: "= *args")'
-        long_desc 'Retourne le résultat d\'une opération mathématique.'
+        title 'al_bhed'
+        desc 'Votre texte en Al Bhed'
+        long_desc 'Transforme votre texte alphabétique en texte Al Bhed (voir: Final Fantasy X)'
       end
 
       def self.call(client, data, match)
-        result = Dentaku::Calculator.new.evaluate(match[:expression]).to_s
+        result = match[:expression].to_s.to_al_bhed
 
         if result && !result.empty?
           client.say(channel: data.channel, text: result)

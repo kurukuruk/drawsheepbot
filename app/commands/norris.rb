@@ -16,9 +16,17 @@ module Drawsheep
         long_desc 'get a Chuck Norris fact.'
       end
 
+      def self.response
+        response = JSON(Net::HTTP.get(URI('https://api.chucknorris.io/jokes/random'))).transform_keys(&:to_sym)
+        if response[:value]
+          response[:value]
+        elsif response[:error]
+          "#{response[:error]} : #{response[:message]}"
+        end
+      end
+
       def self.call(client, data, _match)
-        response = Net::HTTP.get_response('https://api.chucknorris.io', '/jokes/random')
-        client.say(channel: data.channel, text: response.body)
+        client.say(channel: data.channel, text: response)
       rescue StandardError => e
         client.say(channel: data.channel, text: "Je rencontre un problème: #{e.message}.")
       end
