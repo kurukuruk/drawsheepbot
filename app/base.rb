@@ -60,5 +60,10 @@ module Drawsheep
     get '/youtube' do
       'https://www.youtube.com'
     end
+
+    get '/calcule/:operation' do
+      require 'dentaku'
+      Dentaku::Calculator.new.evaluate(params[:operation]).to_s
+    end
   end
 end

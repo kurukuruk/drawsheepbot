@@ -18,10 +18,9 @@ module Drawsheep
       end
 
       def self.call(client, data, match)
-        result = Dentaku::Calculator.new.evaluate(match[:expression]).to_s
-
-        if result && !result.empty?
-          client.say(channel: data.channel, text: result)
+        params = match[:expression].strip
+        if params && !params.empty?
+          client.say(channel: data.channel, text: get("/calcule/#{params}"))
         else
           client.say(channel: data.channel, text: 'Aucun résultat possible.')
         end
