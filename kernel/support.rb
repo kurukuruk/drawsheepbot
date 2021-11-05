@@ -42,13 +42,15 @@ module Drawsheep
         class << self
           ##
           # Generer le texte d'une commande précise
+          # @Return: String
           #
           def generate_text_command(command)
             SlackRubyBot::Commands::Support::Help.instance.command_full_desc(command)
           end
 
           ##
-          # Generer le texte de l'aide pour slack
+          # Generer le texte de l'aide complet du bot, description + commandes
+          # @Return: String
           #
           def genetate_full_text
             template.result_with_hash(
@@ -61,9 +63,10 @@ module Drawsheep
 
           ##
           # Le template du texte
+          # @Return: ERB
           #
           def template
-            ERB.new(File.read('./views/help.slack.erb'))
+            ERB.new(File.read("#{__dir__}/views/help.slack.erb"))
           end
         end
       end

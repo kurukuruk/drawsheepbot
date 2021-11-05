@@ -26,12 +26,17 @@ module Drawsheep
 
       ##
       # 404
+      #
       not_found do |e|
         status 404
         @error = e
         "404 NOT FOUND : #{e.message}"
       end
 
+      ##
+      # Permet de charger les fichier nécessaire depuis un des répèrtoire de l'application.
+      # {NOTE : A AMELIORER}
+      #
       def self.load_files(dir)
         Dir["#{ROOT}/#{dir}/*.rb"].sort.each do |file|
           puts "> load : #{file} "

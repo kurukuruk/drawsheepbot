@@ -5,18 +5,23 @@ Thread.abort_on_exception = true
 
 ROOT = File.expand_path(__dir__)
 
-##
-# variables d'environnement
+# chargmeent des variables d'environnement
 
 require 'dotenv'
 
 Dotenv.load
 
+# charement de l'applicatipons
+
 require './app'
 
+# robot
 bot = Drawsheep::Kernel::Bot
+
+# application back
 app = Drawsheep::App
 
+# thread pour le robot
 Thread.new do
   bot.run
 rescue Exception => e
@@ -25,4 +30,5 @@ rescue Exception => e
   raise e
 end
 
+# thread rack pour l'application back
 run app

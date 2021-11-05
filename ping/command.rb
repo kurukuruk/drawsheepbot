@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 ##
-# La commande des calcules mathématiques.
+# La commande Ping.
+# Permet un dialogue ping / pong.
+# A charger avant l'appelle du robot, la classe mère gère ses commandes
 #
 module Drawsheep
   module Ping

@@ -8,6 +8,10 @@ require 'net/http'
 require "#{__dir__}/kernel/base"
 require "#{__dir__}/kernel/bot"
 
+##
+# L'application principale.
+# Elle est le point d'entrée principale de toute les routes HTTP.
+#
 module Drawsheep
   class App < Kernel::Base
     # norris
