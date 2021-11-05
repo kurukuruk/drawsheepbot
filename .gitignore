@@ -4,3 +4,4 @@ gemfile.lock
 yarn-error.log
 /node_modules
 foo.rb
+/archives

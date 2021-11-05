@@ -12,18 +12,10 @@ require 'dotenv'
 
 Dotenv.load
 
-require './app/base'
-require './app/bot'
+require './app'
 
-base  = Drawsheep::Base
-bot   = Drawsheep::Bot
-
-# Configuration générale du robot
-
-SlackRubyBot.configure do |config|
-  config.token = ENV['SLACK_API_TOKEN']
-  config.aliases = [':ds', 'dsbot']
-end
+bot = Drawsheep::Kernel::Bot
+app = Drawsheep::App
 
 Thread.new do
   bot.run
@@ -33,4 +25,4 @@ rescue Exception => e
   raise e
 end
 
-run base
+run app

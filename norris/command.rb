@@ -4,8 +4,8 @@
 # La commande de Chuck Norris.
 #
 module Drawsheep
-  module Commands
-    class ChuckNorris < SlackRubyBot::Commands::Base
+  module Norris
+    class Command < ::SlackRubyBot::Commands::Base
       operator '-norris'
       command 'norris'
 

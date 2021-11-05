@@ -4,8 +4,8 @@
 # La commande des calcules mathématiques.
 #
 module Drawsheep
-  module Commands
-    class Ping < SlackRubyBot::Commands::Base
+  module Ping
+    class Command < ::SlackRubyBot::Commands::Base
       operator '-ping'
       command 'ping'
 
