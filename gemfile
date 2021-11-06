@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.8'
 
+
 gem 'slack-ruby-bot'
 gem 'puma'
 gem 'sinatra'
@@ -8,6 +9,8 @@ gem 'sinatra-contrib'
 gem 'dotenv'
 gem 'celluloid-io'
 gem 'async-websocket', '~> 0.8.0'
+gem 'http'
+gem 'json'
 
 # gems utilitaires
 gem 'dentaku'

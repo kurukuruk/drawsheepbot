@@ -1,11 +1,6 @@
-require 'slack-ruby-bot'
-require 'sinatra/base'
-require 'sinatra/reloader'
-require 'sinatra/json'
-require 'json'
-require 'net/http'
+# frozen_string_literal: true
 
-require "#{__dir__}/kernel/base"
+require "#{__dir__}/kernel/controller"
 require "#{__dir__}/kernel/bot"
 
 ##
@@ -13,17 +8,22 @@ require "#{__dir__}/kernel/bot"
 # Elle est le point d'entrée principale de toute les routes HTTP.
 #
 module Drawsheep
-  class App < Kernel::Base
+  class App < Kernel::Controller
     # norris
     load_files 'norris' do
-      use Drawsheep::Norris::Controller
+      use Norris::Controller
+    end
+
+    # calcule
+    load_files 'calcule' do
+      use Calcule::Controller
     end
 
     # ...
 
     # ping
     load_files 'ping' do
-      use ::Drawsheep::Ping::Controller
+      use Ping::Controller
     end
   end
 end

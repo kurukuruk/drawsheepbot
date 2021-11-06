@@ -17,10 +17,9 @@ module Drawsheep
         long_desc 'get a Chuck Norris fact.'
       end
 
-      def self.call(client, data, _match)
+      def self.call(client, data, match)
         client.say(channel: data.channel, text: get('/norris'))
-      rescue StandardError => e
-        client.say(channel: data.channel, text: "Je rencontre un problème: #{e.message}.")
+        super client, data, match
       end
     end
   end

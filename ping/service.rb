@@ -2,9 +2,9 @@
 
 module Drawsheep
   module Ping
-    class Controller < Kernel::Controller
-      get '/ping' do
-        Service.call
+    module Service
+      def self.call
+        'pong'
       end
     end
   end

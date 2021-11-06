@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Drawsheep
-  module Ping
+  module Calcule
     class Controller < Kernel::Controller
-      get '/ping' do
-        Service.call
+      get '/calcule/?:operation?' do
+        Service.call params[:operation]
       end
     end
   end

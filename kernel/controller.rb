@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
+require 'sinatra/base'
+require 'sinatra/reloader'
+require 'sinatra/json'
+
 module Drawsheep
   module Kernel
     ##
     # Notre controlleur de base
     #
-    class Base < Sinatra::Base
+    class Controller < Sinatra::Base
       ##
       # configuration generale
       #
@@ -30,7 +34,7 @@ module Drawsheep
       not_found do |e|
         status 404
         @error = e
-        "404 NOT FOUND : #{e.message}"
+        "404: #{e.message}"
       end
 
       ##

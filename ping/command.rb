@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-##
-# La commande Ping.
-# Permet un dialogue ping / pong.
-# A charger avant l'appelle du robot, la classe mère gère ses commandes
-#
 module Drawsheep
   module Ping
     class Command < ::SlackRubyBot::Commands::Base
@@ -17,10 +12,9 @@ module Drawsheep
         long_desc 'Une partie de ping pong ?'
       end
 
-      def self.call(client, data, _match)
+      def self.call(client, data, match)
         client.say(text: get('/ping'), channel: data.channel)
-      rescue StandardError => e
-        client.say(channel: data.channel, text: "Je rencontre un problème: #{e.message}.")
+        super client, data, match
       end
     end
   end
