@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
+
 Thread.abort_on_exception = true
 
 ROOT = File.expand_path(__dir__)
