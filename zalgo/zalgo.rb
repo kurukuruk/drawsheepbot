@@ -143,10 +143,6 @@ class Zalgo
     up = options[:up]         || DEFAULT[:up]
     random = options[:random] || DEFAULT[:random]
 
-    puts
-    puts down, mid, up, random
-    puts
-
     string +
       set_combining_chars('',     down, COMBINING_CHARS[:down], random) +
       set_combining_chars(string, mid,  COMBINING_CHARS[:mid],  random) +
