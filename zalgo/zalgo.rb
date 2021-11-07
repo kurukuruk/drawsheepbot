@@ -138,9 +138,9 @@ class Zalgo
   }.freeze
 
   def self.transform(string, **options)
-    down = options[:down] || DEFAULT[:down]
-    mid = options[:mid] || DEFAULT[:mid]
-    up = options[:up] || DEFAULT[:up]
+    down = options[:down]     || DEFAULT[:down]
+    mid = options[:mid]       || DEFAULT[:mid]
+    up = options[:up]         || DEFAULT[:up]
     random = options[:random] || DEFAULT[:random]
 
     puts
