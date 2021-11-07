@@ -14,7 +14,6 @@ module Drawsheep
 
       def self.call(client, data, match)
         super client, data, match do
-          # operation = Service.parse_for_uri(match[:expression])
           operation = match[:expression].strip
           client.say(channel: data.channel, text: post('/calcule', operation: operation))
         end

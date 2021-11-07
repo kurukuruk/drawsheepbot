@@ -13,6 +13,10 @@ module Drawsheep
       use Calcule::Controller
     end
 
+    load_files 'zalgo' do
+      use Zalgo::Controller
+    end
+
     # ...
 
     load_files 'ping' do
