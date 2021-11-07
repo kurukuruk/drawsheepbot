@@ -13,8 +13,9 @@ module Drawsheep
       end
 
       def self.call(client, data, match)
-        client.say(text: get('/ping'), channel: data.channel)
-        super client, data, match
+        super client, data, match do
+          client.say(text: get('/ping'), channel: data.channel)
+        end
       end
     end
   end

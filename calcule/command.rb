@@ -13,9 +13,11 @@ module Drawsheep
       end
 
       def self.call(client, data, match)
-        operation = Service.parse_for_uri match[:expression]
-        client.say(channel: data.channel, text: get("/calcule/#{operation}"))
-        super client, data, match
+        super client, data, match do
+          # operation = Service.parse_for_uri(match[:expression])
+          operation = match[:expression].strip
+          client.say(channel: data.channel, text: post('/calcule', operation: operation))
+        end
       end
     end
   end

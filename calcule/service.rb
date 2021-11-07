@@ -8,9 +8,9 @@ module Drawsheep
       def self.call(operation)
         return 'Rien à calculer' unless operation
 
-        operation = parse_for_ruby operation
+        operation = parse_for_math(operation)
 
-        result = Dentaku::Calculator.new.evaluate operation
+        result = Dentaku::Calculator.new.evaluate(operation)
 
         if result
           result.to_s
@@ -19,19 +19,11 @@ module Drawsheep
         end
       end
 
-      def self.parse_for_uri(param)
-        if param
-          param.strip.gsub('^', '**')
-        else
-          ''
-        end
-      end
+      class << self
+        # MATH_OPERATORS = %w[+ - * / % ^ | &].freeze
 
-      def self.parse_for_ruby(param)
-        if param
-          param.strip.gsub('**', '^')
-        else
-          ''
+        def parse_for_math(str)
+          str && str.gsub('amp;', '').gsub(' ', '') if str
         end
       end
     end

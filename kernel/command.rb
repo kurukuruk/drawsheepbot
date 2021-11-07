@@ -12,9 +12,20 @@ class SlackRubyBot::Commands::Base
   end
 
   ##
+  # récuperer une répoonse depuis une commande HTTP /POST
+  #
+  def self.post(path, data)
+    uri = URI("#{ENV['HOST']}/#{path}")
+
+    response = Net::HTTP.post_form(uri, data)
+    response.body
+  end
+
+  ##
   # Proteger la méthode call
   #
-  def self.call(client, data, _match)
+  def self.call(client, data, match)
+    yield client, data, match
   rescue StandardError => e
     client.say(channel: data.channel, text: "Je rencontre un problème: #{e.message}.")
   end
