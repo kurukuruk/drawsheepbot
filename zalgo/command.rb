@@ -2,7 +2,7 @@
 
 module Drawsheep
   module Zalgo
-    class Commands < SlackRubyBot::Commands::Base
+    class Commands < Kernel::Command
       operator '-creep'
       command 'zalgo'
 
@@ -14,8 +14,7 @@ module Drawsheep
 
       def self.call(client, data, match)
         super client, data, match do
-          text = match['expression'].strip
-          client.say(channel: data.channel, text: post('/zalgo', text: text))
+          client.say(channel: data.channel, text: post('/zalgo', string: match['expression']))
         end
       end
     end

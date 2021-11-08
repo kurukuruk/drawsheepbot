@@ -1,13 +1,8 @@
 # frozen_string_literal: true
 
-##
-# La commande de Chuck Norris.
-# Permet d'appeler l'api des blagues sur Chuck Norris
-# A charger avant l'appelle du robot, la classe mère gère ses commandes
-#
 module Drawsheep
   module Norris
-    class Command < ::SlackRubyBot::Commands::Base
+    class Command < Kernel::Command
       operator '-norris'
       command 'norris'
 

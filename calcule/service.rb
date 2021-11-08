@@ -22,8 +22,8 @@ module Drawsheep
       class << self
         # MATH_OPERATORS = %w[+ - * / % ^ | &].freeze
 
-        def parse_for_math(str)
-          str && str.gsub('amp;', '').gsub(' ', '') if str
+        def parse_for_math(operation)
+          operation.gsub('amp;', '').gsub(' ', '') if operation
         end
       end
     end

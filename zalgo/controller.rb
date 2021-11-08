@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
+require "#{__dir__}/service.rb"
+
 module Drawsheep
   module Zalgo
-    class Controller < Kernel::Controller
+    class Controller < Kernel::BaseController
       post '/zalgo' do
-        Service.call(params['text'])
+        Service.call(params['string'])
       end
     end
   end

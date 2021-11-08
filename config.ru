@@ -12,17 +12,12 @@ require 'dotenv'
 
 Dotenv.load
 
-# charement de l'applicatipons
+# chargement du bot
 
-require './app'
+require './bot'
 
-# robot
-bot = Drawsheep::Kernel::Bot
+bot = Drawsheep::Bot
 
-# application back
-app = Drawsheep::App
-
-# thread pour le robot
 Thread.new do
   bot.run
 rescue Exception => e
@@ -31,5 +26,10 @@ rescue Exception => e
   raise e
 end
 
-# thread rack pour l'application back
+# charement de l'applicatipon web
+
+require './app'
+
+app = Drawsheep::App
+
 run app

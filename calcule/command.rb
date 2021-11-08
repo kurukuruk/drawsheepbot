@@ -2,7 +2,7 @@
 
 module Drawsheep
   module Calcule
-    class Commands < ::SlackRubyBot::Commands::Base
+    class Commands < Kernel::Command
       operator '='
       command 'calcule'
 
@@ -14,8 +14,7 @@ module Drawsheep
 
       def self.call(client, data, match)
         super client, data, match do
-          operation = match[:expression].strip
-          client.say(channel: data.channel, text: post('/calcule', operation: operation))
+          client.say(channel: data.channel, text: post('/calcule', operation: match[:expression]))
         end
       end
     end

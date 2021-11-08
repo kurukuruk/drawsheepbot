@@ -9,7 +9,7 @@ module Drawsheep
     ##
     # Notre controlleur de base
     #
-    class Controller < Sinatra::Base
+    class BaseController < Sinatra::Base
       ##
       # configuration generale
       #
@@ -25,7 +25,15 @@ module Drawsheep
       # configuration développement
       #
       configure :development do
+        # exceptions
+        disable :raise_errors
+        disable :show_exceptions
+
+        # reload
         register Sinatra::Reloader
+        after_reload do
+          puts "#{self} reloaded"
+        end
       end
 
       ##
@@ -36,19 +44,18 @@ module Drawsheep
         @error = e
         "404: #{e.message}"
       end
+    end
 
+    class AppController < BaseController
       ##
-      # Permet de charger les fichier nécessaire depuis un des répèrtoire de l'application.
+      # Permet de charger les fichier nécessaire.
       # {NOTE : A AMELIORER}
       #
-      def self.load_files(dir)
-        Dir["#{ROOT}/#{dir}/*.rb"].sort.each do |file|
-          puts "> load : #{file} "
-          require file
-          puts 'Loaded'
-        end
-
-        yield self
+      def self.load_controller(dir)
+        file = "#{ROOT}/#{dir}/controller.rb"
+        puts "> Load controller: #{file} "
+        require file
+        puts 'Controller loaded.'
       end
     end
   end

@@ -2,7 +2,7 @@
 
 module Drawsheep
   module Ping
-    class Command < ::SlackRubyBot::Commands::Base
+    class Command < Kernel::Command
       operator '-ping'
       command 'ping'
 
