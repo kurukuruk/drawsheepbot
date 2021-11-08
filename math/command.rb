@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
 module Drawsheep
-  module Calcule
+  module Math
     class Commands < Kernel::Command
       operator '='
       command 'math'
 
       help do
-        title 'Math'
+        title 'math'
         desc 'Opératiion mathématique (operateur: = )'
-        long_desc ERB.new(File(__dir__ + '/' + 'desc.erb')).result_with_hash(
-          operators: %w[+ - * / ^ % | & MAX MIN]
-        )
+        long_desc 'Je Retourne le résultat d\'une opération mathématique.'
       end
 
       def self.call(client, data, match)
