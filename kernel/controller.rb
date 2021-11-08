@@ -13,6 +13,9 @@ module Drawsheep
         set :author, 'Les drawhseepers'
         set :created_at, '2021'
         set :description, 'Web app pour DrawsheepBot'
+        set :root, ROOT
+        set :lock, true
+        set :static, true
       end
 
       configure :development do

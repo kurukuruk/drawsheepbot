@@ -5,11 +5,11 @@ require "#{__dir__}/kernel/controller"
 module Drawsheep
   class App < Kernel::AppController
     load_controller 'norris'
-    load_controller 'calcule'
+    load_controller 'math'
     load_controller 'zalgo'
 
     use Norris::Controller
-    use Calcule::Controller
+    use Math::Controller
     use Zalgo::Controller
   end
 end

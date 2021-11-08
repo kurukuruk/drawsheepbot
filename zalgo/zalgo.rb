@@ -131,9 +131,9 @@ class Zalgo
   }.freeze
 
   DEFAULT = {
-    down: 10,
-    mid: 5,
-    up: 10,
+    down: 5,
+    mid: 1,
+    up: 5,
     random: false
   }.freeze
 
@@ -143,7 +143,7 @@ class Zalgo
     up = options[:up]         || DEFAULT[:up]
     random = options[:random] || DEFAULT[:random]
 
-    string +
+    '' +
       set_combining_chars('',     down, COMBINING_CHARS[:down], random) +
       set_combining_chars(string, mid,  COMBINING_CHARS[:mid],  random) +
       set_combining_chars('',     up,   COMBINING_CHARS[:up],   random)

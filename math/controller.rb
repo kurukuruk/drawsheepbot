@@ -3,9 +3,9 @@
 require "#{__dir__}/service.rb"
 
 module Drawsheep
-  module Calcule
+  module Math
     class Controller < Kernel::BaseController
-      post '/calcule' do
+      post '/math' do
         Service.call(params['operation'])
       end
     end
